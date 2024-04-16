@@ -54,7 +54,7 @@ h6 {
 }
 .col-9.col-lg-8 {
   overflow-y: scroll;
-  height: 54rem;
+  height: calc(100vh - 100px);
 }
 .col-9.col-lg-8::-webkit-scrollbar {
   width: 13px;
