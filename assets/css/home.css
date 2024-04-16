@@ -7,12 +7,17 @@ footer {
   bottom: 0;
   background-color: black;
   z-index: 999;
+  height: 13vh;
 }
+
 .svg {
   width: 50px;
   height: 50px;
 }
-
+.svgContLike {
+  width: 15px;
+  height: 15px;
+}
 .listHome {
   list-style: none;
 }
@@ -44,6 +49,34 @@ footer {
 h6 {
   font: 1em;
 }
-.d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white.overflow-auto {
-  height: 400px;
+.d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white {
+  overflow-y: scroll;
+  height: 54rem;
+}
+.col-9.col-lg-8 {
+  overflow-y: scroll;
+  height: 54rem;
+}
+.col-9.col-lg-8::-webkit-scrollbar {
+  width: 13px;
+}
+.col-9.col-lg-8::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: #212529;
+}
+.col-9.col-lg-8::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+.d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white::-webkit-scrollbar {
+  width: 13px;
+}
+.d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white::-webkit-scrollbar-track {
+  width: 10px;
+  background-color: #212529;
+}
+.d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+.list-group-item.active {
+  border-color: #212529;
 }
