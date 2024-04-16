@@ -57,7 +57,12 @@
                 </a>
               </li>
               <li class="nav-item mb-2">
-                <a href="#" class="nav-link text-reset p-0" aria-current="page">
+                <a
+                  id="searchSidebar"
+                  href="#"
+                  class="nav-link text-reset p-0"
+                  aria-current="page"
+                >
                   <div class="d-flex align-items-center gap-2">
                     <div class="svgCont">
                       <svg
@@ -264,6 +269,23 @@
                   d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
                 ></path>
               </svg>
+            </div>
+
+            <div>
+              <form id="search" class="d-none" role="search">
+                <input
+                  class="Text__TextElement-sc-if376j-0 gYdBJW encore-text-body-small NtkAQg9R1r5CjuP0XHwl"
+                  maxlength="800"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  placeholder="Cosa vuoi ascoltare?"
+                  data-testid="search-input"
+                  data-encore-id="text"
+                  value=""
+                  style="color: rgb(0, 0, 0)"
+                />
+              </form>
             </div>
           </div>
           <!--qui finisce l header del main e inizia la pagina principale-->
@@ -729,6 +751,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="search.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
