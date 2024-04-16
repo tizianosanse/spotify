@@ -7,7 +7,6 @@ footer {
   bottom: 0;
   background-color: black;
   z-index: 999;
-  height: 13vh;
 }
 
 .svg {
@@ -82,5 +81,10 @@ h6 {
 }
 
 .gradient {
-  background: linear-gradient(70deg, rgba(2,2,2,1) 0%, rgba(28,28,28,1) 59%, rgba(33,33,33,1) 100%);
+  background: linear-gradient(
+    70deg,
+    rgba(2, 2, 2, 1) 0%,
+    rgba(28, 28, 28, 1) 59%,
+    rgba(33, 33, 33, 1) 100%
+  );
 }

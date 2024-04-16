@@ -17,20 +17,20 @@ const generateAlbum = () => {
         throw new Error(console.log(error))
       }
     })
-    .then((getData) => {
-      console.log(getData)
-      getData.data.forEach((obj) => {
-        console.log(obj.album)
+    .then((getElement) => {
+      console.log(getElement)
+      const albumArr = getElement.data.slice(0, 5)
+      albumArr.forEach((obj) => {
         const img = obj.album.cover_small
         const title = obj.album.title
         const artist = obj.artist.name
         const col = document.createElement("col")
         col.classList.add("col")
-        col.innerHTML = `<div class="card">
+        col.innerHTML = `<div class="card ">
       <img
         src="${img}"
-        class="card-img-top"
-        alt="..."
+        class="card-img-top object-fit-cover"
+        alt="album-image"
       />
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
