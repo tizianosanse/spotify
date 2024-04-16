@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Artist page</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -11,7 +11,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/artist.css" />
   </head>
   <body data-bs-theme="dark">
     <div class="container-fluid">
@@ -240,7 +240,7 @@
         <!-- fine prima colonna  -->
         <!--qui inizia il main-->
         <div class="col-9 col-lg-8">
-          <div class="container-fluid">
+          <div class="container-fluid header">
             <div class="headerMain d-flex my-3">
               <div class="svgCont">
                 <svg
@@ -269,10 +269,74 @@
                 </svg>
               </div>
             </div>
-            <div class="d-flex">
-              <i class="bi bi-patch-check"></i> 
-              <h4>Verificato</h4>
-              <h1 class="title">Nome artista</h1>
+            <div>
+              <h6 class="title">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-patch-check-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"
+                  /></svg
+                >Artista Verificato
+              </h6>
+              <h1 class="display-3">Nome artista</h1>
+              <p>Numero di ascoltatori mensili</p>
+            </div>
+          </div>
+          <div class="container d-flex">
+            <div class="p-2">
+              <a href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="white"
+                  class="bi bi-play-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="p-2">
+              <button type="button" class="btn btn-outline-light">
+                Following
+              </button>
+            </div>
+            <div class="p-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-three-dots"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="container">
+            <h1 class="title">Popolari</h1>
+            <div class="container">
+              <ul>
+                <li>
+                  <img src="./assets/imgs/main/image-1.jpg" alt="img" width="30" height="auto" /> Canzone 1
+                </li>
+                <li> <img src="./assets/imgs/main/image-1.jpg" alt="img" width="30" height="auto"/> Canzone 2</li>
+                <li> <img src="./assets/imgs/main/image-1.jpg" alt="img" width="30" height="auto"/> Canzone 3</li>
+                <li> <img src="./assets/imgs/main/image-1.jpg" alt="img" width="30" height="auto"/> Canzone 4</li>
+                <li> <img src="./assets/imgs/main/image-1.jpg" alt="img" width="30" height="auto"/> Canzone 5</li>
+              </ul>
             </div>
           </div>
         </div>
