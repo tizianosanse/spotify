@@ -1,4 +1,5 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=queen"
+const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem"
+
 const options = {
   method: "GET",
   headers: {
@@ -6,7 +7,59 @@ const options = {
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
 }
+const rowAlbum = document.getElementById("row-album")
+const rowAlbum2 = document.getElementById("rowAlbum2")
+const generateAlbum = () => {
+  fetch(url, options)
+    .then((response) => {
+      if (response.ok) {
+        console.log(response)
+        return response.json()
+      } else {
+        throw new Error(console.log(error))
+      }
+    })
+    .then((getElement) => {
+      const songArr = []
+      const song1 = getElement.data[0]
+      const song2 = getElement.data[1]
+      console.log(getElement.data)
+      const song5 = getElement.data[5]
+      const song12 = getElement.data[12]
+      const song22 = getElement.data[22]
+      songArr.push(song5, song12, song1, song2, song22)
+      songArr.forEach((obj) => {
+        const img = obj.album.cover_medium
+        const title = obj.album.title
+        const artist = obj.artist.name
 
+        const col = document.createElement("col")
+        col.classList.add("col")
+        col.innerHTML = `<div class="card ">
+        <a id='albumLink'
+        class='link'
+        
+         href="/album.html?p=${obj.album.id}">
+      <img
+        src="${img}"
+        class="card-img-top object-fit-cover"
+        alt="album-image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">${title}</h5>
+        </a>
+        <p class="card-text">
+          ${artist}
+        </p>
+      </div>
+    </div>`
+
+        rowAlbum.appendChild(col)
+      })
+    })
+
+    .catch((error) => console.log(error))
+}
 function iR() {
   let i = Math.floor(Math.random() * 24)
   return i
@@ -65,57 +118,7 @@ const generateBanner = () => {
       </div>`
     })
 }
-const rowAlbum = document.getElementById("row-album")
-const generateAlbum = () => {
-  fetch(url, options)
-    .then((response) => {
-      if (response.ok) {
-        console.log(response)
-        return response.json()
-      } else {
-        throw new Error(console.log(error))
-      }
-    })
-    .then((getElement) => {
-      const songArr = []
-      const song1 = getElement.data[0]
-      const song2 = getElement.data[1]
-
-      const song5 = getElement.data[5]
-      const song12 = getElement.data[12]
-      const song22 = getElement.data[22]
-      songArr.push(song5, song12, song1, song2, song22)
-
-      songArr.forEach((obj) => {
-        const img = obj.album.cover_medium
-        const title = obj.album.title
-
-        const artist = obj.artist.name
-        const col = document.createElement("col")
-        col.classList.add("col")
-        col.innerHTML = `<div  class="card" onclick="goToAlbum('${obj.album.id}')">
-        <img
-        src="${img}"
-        class="card-img-top object-fit-cover"
-        alt="album-image"
-      />
-      <div class="card-body">
-      <h5 class="card-title">${title}</h5>
-      <p class="card-text">
-          ${artist}
-        </p>
-        </div>
-    </div>`
-        rowAlbum.appendChild(col)
-      })
-    })
-    .catch((error) => console.log(error))
-}
-const goToAlbum = (id) => {
-  window.location.assign(`./albumPage.html?appId=` + id)
-}
-
 window.addEventListener("DOMContentLoaded", () => {
-  generateBanner()
   generateAlbum()
+  generateBanner()
 })
