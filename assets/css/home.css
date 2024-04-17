@@ -93,3 +93,7 @@ h6 {
 .bgSpotify {
   background-color: #1dda62;
 }
+
+.boldTitle {
+  font-weight: bold;
+}
