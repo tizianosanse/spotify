@@ -1,4 +1,5 @@
 const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
+
 const options = {
   method: "GET",
   headers: {
@@ -7,6 +8,7 @@ const options = {
   },
 };
 const rowAlbum = document.getElementById("row-album");
+const rowAlbum2 = document.getElementById("rowAlbum2");
 const generateAlbum = () => {
   fetch(url, options)
     .then((response) => {
@@ -18,11 +20,10 @@ const generateAlbum = () => {
       }
     })
     .then((getElement) => {
-      console.log(getElement);
       const songArr = [];
       const song1 = getElement.data[0];
       const song2 = getElement.data[1];
-
+      console.log(getElement.data);
       const song5 = getElement.data[5];
       const song12 = getElement.data[12];
       const song22 = getElement.data[22];
@@ -31,9 +32,14 @@ const generateAlbum = () => {
         const img = obj.album.cover_medium;
         const title = obj.album.title;
         const artist = obj.artist.name;
+
         const col = document.createElement("col");
         col.classList.add("col");
         col.innerHTML = `<div class="card ">
+        <a id='albumLink'
+        class='link'
+        
+         href="/album.html?p=${obj.album.id}">
       <img
         src="${img}"
         class="card-img-top object-fit-cover"
@@ -41,14 +47,17 @@ const generateAlbum = () => {
       />
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
+        </a>
         <p class="card-text">
           ${artist}
         </p>
       </div>
     </div>`;
+
         rowAlbum.appendChild(col);
       });
     })
+
     .catch((error) => console.log(error));
 };
 
