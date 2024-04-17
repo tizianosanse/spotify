@@ -7,7 +7,6 @@ footer {
   bottom: 0;
   background-color: black;
   z-index: 999;
-  height: 13vh;
 }
 
 .svg {
@@ -55,7 +54,7 @@ h6 {
 }
 .col-9.col-lg-8 {
   overflow-y: scroll;
-  height: 54rem;
+  height: calc(100vh - 100px);
 }
 .col-9.col-lg-8::-webkit-scrollbar {
   width: 13px;
@@ -82,5 +81,24 @@ h6 {
 }
 
 .gradient {
-  background: linear-gradient(70deg, rgba(2,2,2,1) 0%, rgba(28,28,28,1) 59%, rgba(33,33,33,1) 100%);
+  background: linear-gradient(
+    70deg,
+    rgba(2, 2, 2, 1) 0%,
+    rgba(28, 28, 28, 1) 59%,
+    rgba(33, 33, 33, 1) 100%
+  );
+}
+.NtkAQg9R1r5CjuP0XHwl {
+  background-color: #242424;
+  border: 0;
+  border-radius: 500px;
+  color: #fff !important;
+  height: 48px;
+  padding: 6px 36px;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.link {
+  color: #fff;
+  text-decoration: none;
 }
