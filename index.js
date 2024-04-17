@@ -24,9 +24,9 @@ const generateAlbum = () => {
       const album2 = getElement.data[1];
 
       const album6 = getElement.data[5];
-      const album7 = getElement.data[6];
-      const album19 = getElement.data[19];
-      albumArr.push(album6, album7, album1, album2, album19);
+      const album12 = getElement.data[12];
+      const album22 = getElement.data[22];
+      albumArr.push(album6, album12, album1, album2, album22);
       albumArr.forEach((obj) => {
         const img = obj.album.cover_medium;
         const title = obj.album.title;
