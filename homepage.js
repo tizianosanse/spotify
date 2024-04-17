@@ -1,4 +1,4 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem"
+const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=queen"
 const options = {
   method: "GET",
   headers: {
@@ -24,6 +24,7 @@ const generateBanner = () => {
     .then((getElement) => {
       console.log(getElement)
       let bannerI = getElement.data[iR()]
+      console.log(bannerI.album.id)
       const annuncio = document.getElementById("annuncio")
       annuncio.innerHTML = `
       <div>
@@ -34,7 +35,7 @@ const generateBanner = () => {
         />
       </div>
       <div class="flex-grow-1">
-        <p>Da ${bannerI.album.title}</p>
+        <p >Da ${bannerI.album.title}</p>
         <h1>${bannerI.title}</h1>
         <p>${bannerI.artist.name}</p>
         <p>${bannerI.type}</p>
@@ -76,7 +77,6 @@ const generateAlbum = () => {
       }
     })
     .then((getElement) => {
-      console.log(getElement)
       const songArr = []
       const song1 = getElement.data[0]
       const song2 = getElement.data[1]
@@ -85,29 +85,34 @@ const generateAlbum = () => {
       const song12 = getElement.data[12]
       const song22 = getElement.data[22]
       songArr.push(song5, song12, song1, song2, song22)
+
       songArr.forEach((obj) => {
         const img = obj.album.cover_medium
         const title = obj.album.title
+
         const artist = obj.artist.name
         const col = document.createElement("col")
         col.classList.add("col")
-        col.innerHTML = `<div class="card ">
-      <img
+        col.innerHTML = `<div  class="card" onclick="goToAlbum('${obj.album.id}')">
+        <img
         src="${img}"
         class="card-img-top object-fit-cover"
         alt="album-image"
       />
       <div class="card-body">
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">
+      <h5 class="card-title">${title}</h5>
+      <p class="card-text">
           ${artist}
         </p>
-      </div>
+        </div>
     </div>`
         rowAlbum.appendChild(col)
       })
     })
     .catch((error) => console.log(error))
+}
+const goToAlbum = (id) => {
+  window.location.assign(`./albumPage.html?appId=` + id)
 }
 
 window.addEventListener("DOMContentLoaded", () => {
