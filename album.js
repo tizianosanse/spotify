@@ -19,15 +19,15 @@ const generateAlbum = () => {
     })
     .then((getElement) => {
       console.log(getElement);
-      const albumArr = [];
-      const album1 = getElement.data[0];
-      const album2 = getElement.data[1];
+      const songArr = [];
+      const song1 = getElement.data[0];
+      const song2 = getElement.data[1];
 
-      const album6 = getElement.data[5];
-      const album12 = getElement.data[12];
-      const album22 = getElement.data[22];
-      albumArr.push(album6, album12, album1, album2, album22);
-      albumArr.forEach((obj) => {
+      const song5 = getElement.data[5];
+      const song12 = getElement.data[12];
+      const song22 = getElement.data[22];
+      songArr.push(song5, song12, song1, song2, song22);
+      songArr.forEach((obj) => {
         const img = obj.album.cover_medium;
         const title = obj.album.title;
         const artist = obj.artist.name;
