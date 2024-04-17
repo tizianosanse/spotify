@@ -6,9 +6,7 @@ const options = {
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
 }
-const params = new URLSearchParams(window.location.search)
-const id = params.get("Id")
-console.log(params)
+
 function iR() {
   let i = Math.floor(Math.random() * 24)
   return i
