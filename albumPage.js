@@ -1,7 +1,7 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/";
-const params = new URLSearchParams(window.location.search);
-const id = params.get("p");
-console.log(id);
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/"
+const params = new URLSearchParams(window.location.search)
+const id = params.get("p")
+console.log(id)
 window.onload = () => {
   fetch(url + id, {
     method: "GET",
@@ -12,56 +12,40 @@ window.onload = () => {
   })
     .then((response) => {
       if (response.ok) {
-        console.log(response);
-        return response.json();
+        console.log(response)
+        return response.json()
       } else {
-        throw new Error(console.log(error));
+        throw new Error(console.log(error))
       }
     })
     .then((getElement) => {
-      console.log(getElement);
-      const title = document.getElementById("title");
-      const img = document.getElementById("imgAlbum");
+      console.log(getElement)
+      const title = document.getElementById("title")
+      const img = document.getElementById("imgAlbum")
 
-      img.setAttribute("src", getElement.cover_medium);
+      img.setAttribute("src", getElement.cover_medium)
 
-      title.innerText = getElement.title;
-      const arrTracks = getElement.tracks.data;
+      title.innerText = getElement.title
+      const arrTracks = getElement.tracks.data
+      const container = document.getElementById("tracks-container")
       arrTracks.forEach((track) => {
-        const rowTracks = document.createElement("div");
-        const col1 = document.createElement("div");
-        col1.classList.add("col-1");
-        const col6 = document.createElement("div");
-        col6.classList.add("col-6");
-        const col4 = document.createElement("div");
-        col4.classList.add("col-4");
-        const col66 = document.createElement("div");
-        col66.classList.add("col-1");
-        rowTracks.classList.add("row");
-        console.log(track);
-        console.log(getElement.tracks.data);
-        const songCont = document.getElementById("container-tracks");
-        const p = document.createElement("p");
-
-        p.innerText = arrTracks.indexOf(track) + 1;
-
-        col1.appendChild(p);
-        songCont.appendChild(col1);
-        const title = document.createElement("p");
-        title.innerText = track.title;
-        const artist = document.createElement("h6");
-        artist.innerText = track.artist.name;
-        col6.appendChild(title);
-        col6.appendChild(artist);
-        songCont.appendChild(col6);
-        const p2 = document.createElement("p");
-        p2.innerText = track.rank;
-        col4.appendChild(p2);
-        songCont.appendChild(col4);
-        const time = document.createElement("p");
-        time.innerText = track.duration;
-        col66.appendChild(time);
-        songCont.appendChild(col66);
-      });
-    });
-};
+        const time = (track.duration / 60).toFixed(2)
+        const rowContainer = document.createElement("div")
+        rowContainer.classList.add("row")
+        rowContainer.innerHTML = `<div class="col-1">
+        <p>${arrTracks.indexOf(track) + 1}</p>
+      </div>
+      <div class="col-6">
+        <h6>${track.title}</h6>
+        <p>${track.artist.name}</p>
+      </div>
+      <div class="col-4">
+        <p>${track.rank}</p>
+      </div>
+      <div class="col-1">
+        <p>${time}</p>
+      </div>`
+        container.appendChild(rowContainer)
+      })
+    })
+}

@@ -48,6 +48,7 @@ const generateAlbum = () => {
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
         </a>
+        
         <p class="card-text">
           ${artist}
         </p>
