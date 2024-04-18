@@ -1,4 +1,4 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem"
+const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
 
 const options = {
   method: "GET",
@@ -6,35 +6,35 @@ const options = {
     "X-RapidAPI-Key": "9a6f563ac0mshb5920d970de9fdep1cd546jsn9694b3e51c03",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
-}
-const rowAlbum = document.getElementById("row-album")
-const rowAlbum2 = document.getElementById("rowAlbum2")
+};
+const rowAlbum = document.getElementById("row-album");
+const rowAlbum2 = document.getElementById("rowAlbum2");
 const generateAlbum = () => {
   fetch(url, options)
     .then((response) => {
       if (response.ok) {
-        console.log(response)
-        return response.json()
+        console.log(response);
+        return response.json();
       } else {
-        throw new Error(console.log(error))
+        throw new Error(console.log(error));
       }
     })
     .then((getElement) => {
-      const songArr = []
-      const song1 = getElement.data[0]
-      const song2 = getElement.data[1]
-      console.log(getElement.data)
-      const song5 = getElement.data[5]
-      const song12 = getElement.data[12]
-      const song22 = getElement.data[22]
-      songArr.push(song5, song12, song1, song2, song22)
+      const songArr = [];
+      const song1 = getElement.data[0];
+      const song2 = getElement.data[1];
+      console.log(getElement.data);
+      const song5 = getElement.data[5];
+      const song12 = getElement.data[12];
+      const song22 = getElement.data[22];
+      songArr.push(song5, song12, song1, song2, song22);
       songArr.forEach((obj) => {
-        const img = obj.album.cover_medium
-        const title = obj.album.title
-        const artist = obj.artist.name
+        const img = obj.album.cover_medium;
+        const title = obj.album.title;
+        const artist = obj.artist.name;
 
-        const col = document.createElement("col")
-        col.classList.add("col")
+        const col = document.createElement("col");
+        col.classList.add("col");
         col.innerHTML = `<div class="card ">
         <a id='albumLink'
         class='link'
@@ -45,42 +45,42 @@ const generateAlbum = () => {
         class="card-img-top object-fit-cover"
         alt="album-image"
       />
-      <div class="card-body">
+      <div class="card-body" style="height:150px">
         <h5 class="card-title">${title}</h5>
         </a>
         <p class="card-text">
           ${artist}
         </p>
       </div>
-    </div>`
+    </div>`;
 
-        rowAlbum.appendChild(col)
-      })
+        rowAlbum.appendChild(col);
+      });
     })
 
-    .catch((error) => console.log(error))
-}
+    .catch((error) => console.log(error));
+};
 function iR() {
-  let i = Math.floor(Math.random() * 24)
-  return i
+  let i = Math.floor(Math.random() * 24);
+  return i;
 }
 
 const generateBanner = () => {
   fetch(url, options)
     .then((response) => {
       if (response.ok) {
-        return response.json()
+        return response.json();
       } else {
-        throw new Error(console.log(error))
+        throw new Error(console.log(error));
       }
     })
     .then((getElement) => {
-      console.log(getElement)
-      let bannerI = getElement.data[iR()]
-      console.log(bannerI.album.id)
-      const annuncio = document.getElementById("annuncio")
+      console.log(getElement);
+      let bannerI = getElement.data[iR()];
+      console.log(bannerI.album.id);
+      const annuncio = document.getElementById("annuncio");
       annuncio.innerHTML = `
-      <div>
+      <div > 
         <img
           src="${bannerI.album.cover_medium}"
           alt="annuncio"
@@ -93,8 +93,9 @@ const generateBanner = () => {
         <p>${bannerI.artist.name}</p>
         <p>${bannerI.type}</p>
         <div class="d-flex gap-3">
-          <button class="btn btn-success">Play</button>
-          <button class="btn btn-dark">Salva</button>
+          <button class="btn 
+          bgSpotify rounded-pill">Play</button>
+          <button class="btn btn-dark rounded-pill">Salva</button>
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,14 +112,15 @@ const generateBanner = () => {
           </a>
           <button
             class="position-absolute top-0 end-0 m-3 btn btn-outline-secondary rounded-pill"
+           
           >
             nascondi annunci
           </button>
         </div>
-      </div>`
-    })
-}
+      </div>`;
+    });
+};
 window.addEventListener("DOMContentLoaded", () => {
-  generateAlbum()
-  generateBanner()
-})
+  generateAlbum();
+  generateBanner();
+});
