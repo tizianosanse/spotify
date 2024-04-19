@@ -8,6 +8,7 @@ const options = {
 }
 const songs = document.getElementById("songs")
 const h4 = document.createElement("h4")
+h4.classList.add("my-3")
 h4.innerText = "Popolari"
 songs.appendChild(h4)
 const params = new URLSearchParams(window.location.search)
@@ -26,10 +27,25 @@ const generateArtistPage = () => {
     .then((element) => {
       console.log(element)
       const heroSection = document.getElementById("hero")
-      const artistImage = element.picture_big
+      const artistImage = element.picture_xl
       heroSection.style = `background-image: url(${artistImage})`
       const nameArtist = document.getElementById("name")
       nameArtist.innerText = element.name
+      const listeners = document.getElementById("listeners")
+      listeners.innerHTML = `${element.nb_fan} ascoltatori mensili`
+      const likeTrack = document.getElementById("albums")
+      likeTrack.innerHTML = `<div>
+      <img
+      src="${element.picture_small}"
+      
+      alt="album-image"
+    />
+      <i class="bi bi-heart-fill"></i>
+      </div>
+      <div>
+      <p  class="m-0">hai messo Mi piace a 11 brani</p>
+      <p class="m-0"> Di ${element.name}
+      </div>`
     })
     .catch((error) => console.log(error))
 }
@@ -51,7 +67,8 @@ const generateTracksArtist = () => {
         tracks.classList.add(
           "d-flex",
           "justify-content-between",
-          "align-items-center"
+          "align-items-center",
+          "my-3"
         )
         const time = (obj.duration / 60).toFixed(2)
         tracks.innerHTML = ` 

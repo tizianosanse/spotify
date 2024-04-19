@@ -97,7 +97,7 @@
                         ></path>
                       </svg>
                     </div>
-                    <p class="m-0">la tua libreria</p>
+                    <p class="m-0">La tua libreria</p>
                   </div>
                 </a>
               </li>
@@ -244,80 +244,56 @@
         <!--fine sidebar-->
         <!-- fine prima colonna  -->
         <!--qui inizia il main-->
-        <div class="col-9 col-lg-8">
+        <div style="height: calc(100vh - 100px)" class="col-9 col-lg-8">
           <div class="headerMain d-flex my-3">
-            <div class="svgCont">
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
-                ></path>
-              </svg>
-
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
-                ></path>
-              </svg>
-              <div class="dropdown">
-                <a
-                  href="#"
-                  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                  id="dropdownUser1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+            <div class="d-flex align-items-center gap-2">
+              <a class="rounded-circle bg-dark-subtle p-2">
+                <svg
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="svgContLike"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
                 >
-                  <img
-                    src="https://github.com/mdo.png"
-                    alt=""
-                    width="32"
-                    height="32"
-                    class="rounded-circle me-2"
-                  />
-                  <strong>mdo</strong>
-                </a>
-                <ul
-                  class="dropdown-menu dropdown-menu-dark text-small shadow"
-                  aria-labelledby="dropdownUser1"
+                  <path
+                    d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                  ></path>
+                </svg>
+              </a>
+              <a class="rounded-circle bg-dark-subtle p-2">
+                <svg
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="svgContLike"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
                 >
-                  <li><a class="dropdown-item" href="#">New project...</a></li>
-                  <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Profile</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
+                  <path
+                    d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                  ></path>
+                </svg>
+              </a>
+              <div>
+                <form id="search" class="d-none" role="search">
+                  <div class="d-flex">
+                    <input
+                      id="inputSearch"
+                      class="Text__TextElement-sc-if376j-0 gYdBJW encore-text-body-small NtkAQg9R1r5CjuP0XHwl"
+                      maxlength="800"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      placeholder="Cosa vuoi ascoltare?"
+                      data-testid="search-input"
+                      data-encore-id="text"
+                      value=""
+                      style="color: rgb(0, 0, 0)"
+                    />
+                  </div>
+                </form>
               </div>
-            </div>
-
-            <div>
-              <form id="search" class="d-none" role="search">
-                <div class="d-flex">
-                  <input
-                    id="inputSearch"
-                    class="Text__TextElement-sc-if376j-0 gYdBJW encore-text-body-small NtkAQg9R1r5CjuP0XHwl"
-                    maxlength="800"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                    placeholder="Cosa vuoi ascoltare?"
-                    data-testid="search-input"
-                    data-encore-id="text"
-                    value=""
-                    style="color: rgb(0, 0, 0)"
-                  />
-                </div>
-              </form>
             </div>
           </div>
           <!--qui finisce l header del main e inizia la pagina principale-->
@@ -385,15 +361,9 @@
               <div class="col-4 gap-3">
                 <a href="#">
                   <div class="d-flex align-items-center bg-dark-subtle gap-2">
-                    <img
-                      id="imgCard2"
-                      src="/assets/imgs/main/image-10.jpg"
-                      alt=""
-                      width="70"
-                    />
-                    <h6 id="title2" class="m-0">be the young</h6>
-                  </div></a
-                >
+                    <img id="imgCard2" alt="" width="70" />
+                    <h6 id="title2" class="m-0"></h6></div
+                ></a>
               </div>
               <div class="col-4 gap-3">
                 <a href="#"
@@ -640,8 +610,8 @@
               </div>
 
               <div>
-                <h6 class="m-0">titolo</h6>
-                <p class="m-0">artista</p>
+                <h6 id="titleFoot" class="m-0">titolo</h6>
+                <p id="artistFoot" class="m-0">artista</p>
               </div>
               <div>
                 <a class="text-reset" href="#"

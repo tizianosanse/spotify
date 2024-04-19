@@ -22,10 +22,11 @@ window.onload = () => {
       console.log(getElement)
       const title = document.getElementById("title")
       const img = document.getElementById("imgAlbum")
-
       img.setAttribute("src", getElement.cover_medium)
 
       title.innerText = getElement.title
+      const nameArtist = document.getElementById("name-artist")
+      nameArtist.innerText = getElement.artist.name
       const arrTracks = getElement.tracks.data
       const container = document.getElementById("tracks-container")
       arrTracks.forEach((track) => {
@@ -36,20 +37,22 @@ window.onload = () => {
         <p>${arrTracks.indexOf(track) + 1}</p>
       </div>
       <div class="col-6">
-        <h6>${track.title}</h6>
-        <a class="link d-inline-block" href="artistPage.html?idArtist=${
-          getElement.artist.id
-        }"><p>${track.artist.name}</p></a>
-      </div>
-      <div class="col-4">
+      <h6>${track.title}</h6>
+      <a class="link d-inline-block" href="artistPage.html?idArtist=${
+        getElement.artist.id
+      }"><p>${track.artist.name}</p></a>
+        </div>
+        <div class="col-4">
         <p>${track.rank}</p>
-      </div>
-      <div class="col-1">
+        </div>
+        <div class="col-1">
         <p>${time}</p>
-      </div>`
+        </div>`
         container.appendChild(rowContainer)
 
         rowContainer.addEventListener("click", () => {
+          const imgFoot = document.getElementById("imgFoot")
+          imgFoot.setAttribute("src", getElement.cover_medium)
           const titleFoot = document.getElementById("titleFoot")
           titleFoot.innerText = track.title
           const artistFoot = document.getElementById("artistFoot")
@@ -57,4 +60,10 @@ window.onload = () => {
         })
       })
     })
+  const likeLink = document.getElementById("likeLink")
+  likeLink.addEventListener("click", (event) => {
+    event.preventDefault()
+    const path = document.getElementById("path")
+    path.setAttribute("fill", "green")
+  })
 }

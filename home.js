@@ -34,8 +34,9 @@ const generateAlbum = () => {
         const artist = obj.artist.name
 
         const col = document.createElement("col")
+
         col.classList.add("col")
-        col.innerHTML = `<div class="card ">
+        col.innerHTML = `<div style = "height:300px" class="card ">
         <a id='albumLink'
         class='link'
         
@@ -92,13 +93,13 @@ const generateBanner = () => {
         />
       </div>
       <div class="flex-grow-1">
-        <p >Da ${bannerI.album.title}</p>
+        <a ><p>Da ${bannerI.album.title}</p></a>
         <h1>${bannerI.title}</h1>
         <p>${bannerI.artist.name}</p>
         <p>${bannerI.type}</p>
         <div class="d-flex gap-3">
           <button class="btn 
-          bgSpotify rounded-pill">Play</button>
+          bg-success rounded-pill">Play</button>
           <button class="btn btn-dark rounded-pill">Salva</button>
           <a>
             <svg
