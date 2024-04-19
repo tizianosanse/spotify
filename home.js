@@ -1,4 +1,4 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem"
+const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
 
 const options = {
   method: "GET",
@@ -6,36 +6,36 @@ const options = {
     "X-RapidAPI-Key": "9a6f563ac0mshb5920d970de9fdep1cd546jsn9694b3e51c03",
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   },
-}
-const rowAlbum = document.getElementById("row-album")
-const rowAlbum2 = document.getElementById("rowAlbum2")
+};
+const rowAlbum = document.getElementById("row-album");
+const rowAlbum2 = document.getElementById("rowAlbum2");
 const generateAlbum = () => {
   fetch(url, options)
     .then((response) => {
       if (response.ok) {
-        console.log(response)
-        return response.json()
+        console.log(response);
+        return response.json();
       } else {
-        throw new Error(console.log(error))
+        throw new Error(console.log(error));
       }
     })
     .then((getElement) => {
-      const songArr = []
-      const song1 = getElement.data[0]
-      const song2 = getElement.data[1]
-      console.log(getElement.data)
-      const song5 = getElement.data[5]
-      const song12 = getElement.data[12]
-      const song22 = getElement.data[22]
-      songArr.push(song5, song12, song1, song2, song22)
+      const songArr = [];
+      const song1 = getElement.data[0];
+      const song2 = getElement.data[1];
+      console.log(getElement.data);
+      const song5 = getElement.data[5];
+      const song12 = getElement.data[12];
+      const song22 = getElement.data[22];
+      songArr.push(song5, song12, song1, song2, song22);
       songArr.forEach((obj) => {
-        const img = obj.album.cover_medium
-        const title = obj.album.title
-        const artist = obj.artist.name
+        const img = obj.album.cover_medium;
+        const title = obj.album.title;
+        const artist = obj.artist.name;
 
-        const col = document.createElement("col")
+        const col = document.createElement("col");
 
-        col.classList.add("col")
+        col.classList.add("col");
         col.innerHTML = `<div  class="card ">
         <a id='albumLink'
         class='link'
@@ -57,33 +57,33 @@ const generateAlbum = () => {
         </p>
         </a>
       </div>
-    </div>`
+    </div>`;
 
-        rowAlbum.appendChild(col)
-      })
+        rowAlbum.appendChild(col);
+      });
     })
 
-    .catch((error) => console.log(error))
-}
+    .catch((error) => console.log(error));
+};
 const iR = function () {
-  let i = Math.floor(Math.random() * 24)
-  return i
-}
+  let i = Math.floor(Math.random() * 24);
+  return i;
+};
 
 const generateBanner = () => {
   fetch(url, options)
     .then((response) => {
       if (response.ok) {
-        return response.json()
+        return response.json();
       } else {
-        throw new Error(console.log(error))
+        throw new Error(console.log(error));
       }
     })
     .then((getElement) => {
-      console.log(getElement)
-      let bannerI = getElement.data[iR()]
-      console.log(bannerI.album.id)
-      const annuncio = document.getElementById("annuncio")
+      console.log(getElement);
+      let bannerI = getElement.data[iR()];
+      console.log(bannerI.album.id);
+      const annuncio = document.getElementById("annuncio");
       annuncio.innerHTML = `
       <div > 
         <img
@@ -122,10 +122,16 @@ const generateBanner = () => {
             nascondi annunci
           </button>
         </div>
-      </div>`
-    })
-}
+      </div>`;
+    });
+};
 window.addEventListener("DOMContentLoaded", () => {
-  generateAlbum()
-  generateBanner()
-})
+  generateAlbum();
+  generateBanner();
+});
+const likeLink = document.getElementById("likeLink");
+likeLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  const path = document.getElementById("path");
+  path.setAttribute("fill", "green");
+});
