@@ -93,7 +93,7 @@ const generateBanner = () => {
         />
       </div>
       <div class="flex-grow-1">
-        <a ><p>Da ${bannerI.album.title}</p></a>
+        <p>Da ${bannerI.album.title}</p>
         <h1>${bannerI.title}</h1>
         <p>${bannerI.artist.name}</p>
         <p>${bannerI.type}</p>
