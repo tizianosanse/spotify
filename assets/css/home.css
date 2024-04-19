@@ -102,3 +102,13 @@ h6 {
   color: #fff;
   text-decoration: none;
 }
+
+#hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 460px;
+}
+
+.rowTrack:hover {
+  background-color: green;
+}

@@ -48,10 +48,13 @@ const generateAlbum = () => {
       <div class="card-body">
         <h5 class="card-title">${title}</h5>
         </a>
-        
+        <a id="artistLink" 
+        class="link"
+         href="/artistPage.html?idArtist=${obj.artist.id}">
         <p class="card-text">
           ${artist}
         </p>
+        </a>
       </div>
     </div>`
 

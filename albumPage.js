@@ -31,13 +31,15 @@ window.onload = () => {
       arrTracks.forEach((track) => {
         const time = (track.duration / 60).toFixed(2)
         const rowContainer = document.createElement("div")
-        rowContainer.classList.add("row")
+        rowContainer.classList.add("row", "rowTrack")
         rowContainer.innerHTML = `<div class="col-1">
         <p>${arrTracks.indexOf(track) + 1}</p>
       </div>
       <div class="col-6">
         <h6>${track.title}</h6>
-        <p>${track.artist.name}</p>
+        <a class="link d-inline-block" href="artistPage.html?idArtist=${
+          getElement.artist.id
+        }"><p>${track.artist.name}</p></a>
       </div>
       <div class="col-4">
         <p>${track.rank}</p>
@@ -46,6 +48,13 @@ window.onload = () => {
         <p>${time}</p>
       </div>`
         container.appendChild(rowContainer)
+
+        rowContainer.addEventListener("click", () => {
+          const titleFoot = document.getElementById("titleFoot")
+          titleFoot.innerText = track.title
+          const artistFoot = document.getElementById("artistFoot")
+          artistFoot.innerText = track.artist.name
+        })
       })
     })
 }
