@@ -27,5 +27,43 @@ search.addEventListener("submit", (event) => {
         throw new Error(console.log(error));
       }
     })
-    .then((elem) => {});
+    .then((elem) => {
+      const banner = document.getElementById("annuncio");
+      const albums = document.getElementById("row-album");
+      const playlist = document.getElementById("rowPlaylist");
+      const titl = document.getElementById("titl");
+      const titl2 = document.getElementById("titl2");
+      banner.remove();
+      albums.remove();
+      playlist.remove();
+      titl.remove();
+      titl2.remove();
+      console.log(elem);
+      console.log(elem.data);
+
+      elem.data.forEach((search) => {
+        console.log(search);
+        const containerSearch = document.getElementById("containerSearch");
+        const imgAlbum = document.createElement("img");
+        imgAlbum.setAttribute("width", 60);
+        imgAlbum.setAttribute("height", 60);
+        imgAlbum.setAttribute("src", search.album.cover_medium);
+
+        const rowSearchTrack = document.createElement("div");
+        rowSearchTrack.classList.add("row", "hover");
+
+        const colSearchTrack = document.createElement("div");
+        colSearchTrack.classList.add("col-12", "d-flex", "mb-5", "gap-3");
+        const titlTrack = document.createElement("a");
+        titlTrack.innerText = search.title;
+        const artTrack = document.createElement("a");
+        artTrack.innerText = search.artist.name;
+
+        colSearchTrack.appendChild(imgAlbum);
+        colSearchTrack.appendChild(titlTrack);
+        colSearchTrack.appendChild(artTrack);
+        rowSearchTrack.appendChild(colSearchTrack);
+        containerSearch.appendChild(rowSearchTrack);
+      });
+    });
 });

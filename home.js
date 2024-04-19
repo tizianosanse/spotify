@@ -60,10 +60,10 @@ const generateAlbum = () => {
 
     .catch((error) => console.log(error));
 };
-function iR() {
+const iR = function () {
   let i = Math.floor(Math.random() * 24);
   return i;
-}
+};
 
 const generateBanner = () => {
   fetch(url, options)
