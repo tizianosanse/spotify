@@ -20,7 +20,7 @@
 //     })
 //     .then((objSong) => {
 //       const footer = document.getElementsByTagName("footer");
-//       const video = document.createElement("video");
+//       const video = document.createElement("audio");
 //       video.setAttribute("name", "media");
 
 //       const audio = document.createElement("source");
