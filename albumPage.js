@@ -19,6 +19,8 @@ window.onload = () => {
       }
     })
     .then((getElement) => {
+      const imgFoot = document.getElementById("imgFoot");
+      imgFoot.setAttribute("src", getElement.cover_medium);
       console.log(getElement);
       const title = document.getElementById("title");
       const img = document.getElementById("imgAlbum");
@@ -28,7 +30,10 @@ window.onload = () => {
       title.innerText = getElement.title;
       const arrTracks = getElement.tracks.data;
       arrTracks.forEach((track) => {
+        const link = document.createElement("a");
+
         const rowTracks = document.createElement("div");
+
         const col1 = document.createElement("div");
         col1.classList.add("col-1");
         const col6 = document.createElement("div");
@@ -47,7 +52,8 @@ window.onload = () => {
 
         col1.appendChild(p);
         songCont.appendChild(col1);
-        const title = document.createElement("p");
+        const title = document.createElement("a");
+
         title.innerText = track.title;
         const artist = document.createElement("h6");
         artist.innerText = track.artist.name;
@@ -62,6 +68,21 @@ window.onload = () => {
         time.innerText = track.duration;
         col66.appendChild(time);
         songCont.appendChild(col66);
+        title.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const titleFoot = document.getElementById("titleFoot");
+          titleFoot.innerText = track.title;
+          const artistFoot = document.getElementById("artistFoot");
+          artistFoot.innerText = track.artist.name;
+        });
       });
     });
 };
+
+const likeLink = document.getElementById("likeLink");
+likeLink.addEventListener("click", (event) => {
+  event.preventDefault();
+  const path = document.getElementById("path");
+  path.setAttribute("fill", "green");
+});

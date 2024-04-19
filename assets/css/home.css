@@ -2,6 +2,10 @@ body {
   position: relative;
   overflow-y: hidden;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 footer {
   position: sticky;
   bottom: 0;
@@ -101,4 +105,7 @@ h6 {
 .link {
   color: #fff;
   text-decoration: none;
+}
+.link2 {
+  color: red;
 }
