@@ -61,7 +61,12 @@
                 </a>
               </li>
               <li class="nav-item mb-2">
-                <a href="#" class="nav-link text-reset p-0" aria-current="page">
+                <a
+                  id="searchSidebar"
+                  href="#"
+                  class="nav-link text-reset p-0"
+                  aria-current="page"
+                >
                   <div class="d-flex align-items-center gap-2">
                     <div class="svgCont">
                       <svg
@@ -241,40 +246,63 @@
         <!--fine sidebar-->
         <!-- fine prima colonna  -->
         <!--qui inizia il main-->
-        <div class="col-9 col-lg-8">
+        <div style="height: calc(100vh - 100px)" class="col-9 col-lg-8">
           <div class="headerMain d-flex my-3">
-            <div class="svgCont">
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
-                ></path>
-              </svg>
-            </div>
-            <div class="svgCont">
-              <svg
-                data-encore-id="icon"
-                role="img"
-                aria-hidden="true"
-                class="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
-                ></path>
-              </svg>
+            <div class="d-flex align-items-center gap-2">
+              <a href="home.html" class="rounded-circle bg-dark-subtle p-2">
+                <svg
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="svgContLike"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                  ></path>
+                </svg>
+              </a>
+              <a class="rounded-circle bg-dark-subtle p-2">
+                <svg
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  class="svgContLike"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                  ></path>
+                </svg>
+              </a>
+              <div>
+                <form id="search" class="d-none" role="search">
+                  <div class="d-flex">
+                    <input
+                      id="inputSearch"
+                      class="Text__TextElement-sc-if376j-0 gYdBJW encore-text-body-small NtkAQg9R1r5CjuP0XHwl"
+                      maxlength="800"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      placeholder="Cosa vuoi ascoltare?"
+                      data-testid="search-input"
+                      data-encore-id="text"
+                      value=""
+                      style="color: rgb(0, 0, 0)"
+                    />
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
           <!--qui finisce l header del main e inizia la pagina principale-->
           <!--annuncio-->
           <div
             id="rowAlbum2"
-            class="container p-3 d-flex align-items-center gap-5 gradient position-relative"
+            class="container p-3 d-flex flex-column flex-md-row align-items-center gap-5 gradient position-relative"
           >
             <div>
               <img
@@ -291,7 +319,7 @@
             </div>
           </div>
           <!--inizio parte con 4 icone-->
-          <div class="d-flex gap-3 align-items-center mt-3">
+          <div id="rowPlaylist2" class="d-flex gap-3 align-items-center mt-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
@@ -671,6 +699,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="albumPage.js"></script>
-    <script src="media.js"></script>
+    <script src="search.js"></script>
   </body>
 </html>

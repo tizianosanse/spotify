@@ -32,7 +32,7 @@ window.onload = () => {
       arrTracks.forEach((track) => {
         const time = (track.duration / 60).toFixed(2)
         const rowContainer = document.createElement("div")
-        rowContainer.classList.add("row", "rowTrack")
+        rowContainer.classList.add("row", "hover")
         rowContainer.innerHTML = `<div class="col-1">
         <p>${arrTracks.indexOf(track) + 1}</p>
       </div>

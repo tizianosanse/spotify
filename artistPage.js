@@ -68,7 +68,8 @@ const generateTracksArtist = () => {
           "d-flex",
           "justify-content-between",
           "align-items-center",
-          "my-3"
+          "my-3",
+          "hover"
         )
         const time = (obj.duration / 60).toFixed(2)
         tracks.innerHTML = ` 
@@ -80,6 +81,14 @@ const generateTracksArtist = () => {
         `
 
         songs.appendChild(tracks)
+        tracks.addEventListener("click", () => {
+          const imgFoot = document.getElementById("imgFoot")
+          imgFoot.setAttribute("src", obj.album.cover_medium)
+          const titleFoot = document.getElementById("titleFoot")
+          titleFoot.innerText = obj.title
+          const artistFoot = document.getElementById("artistFoot")
+          artistFoot.innerText = obj.artist.name
+        })
       })
     })
 }

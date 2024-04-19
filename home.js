@@ -36,7 +36,7 @@ const generateAlbum = () => {
         const col = document.createElement("col")
 
         col.classList.add("col")
-        col.innerHTML = `<div style = "height:300px" class="card ">
+        col.innerHTML = `<div  class="card ">
         <a id='albumLink'
         class='link'
         
@@ -46,7 +46,7 @@ const generateAlbum = () => {
         class="card-img-top object-fit-cover"
         alt="album-image"
       />
-      <div class="card-body" style="height:150px">
+      <div class="card-body" >
         <h5 class="card-title">${title}</h5>
         </a>
         <a id="artistLink" 
@@ -116,7 +116,7 @@ const generateBanner = () => {
             </svg>
           </a>
           <button
-            class="position-absolute top-0 end-0 m-3 btn btn-outline-secondary rounded-pill"
+            class=" d-none d-lg-block position-absolute top-0 end-0 m-3 btn btn-outline-secondary rounded-pill"
            
           >
             nascondi annunci
