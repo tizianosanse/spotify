@@ -48,9 +48,9 @@ const generateAlbum = () => {
       <div class="card-body" style="height:150px">
         <h5 class="card-title">${title}</h5>
         </a>
-        <p class="card-text">
-          ${artist}
-        </p>
+        <a href= "/artist.html?artistId=${obj.artist.id}"> <p class="card-text"> 
+          ${artist} 
+        </p> </a>
       </div>
     </div>`;
 
