@@ -88,6 +88,11 @@ const generateTracksArtist = () => {
           titleFoot.innerText = obj.title;
           const artistFoot = document.getElementById("artistFoot");
           artistFoot.innerText = obj.artist.name;
+          const embed = document.getElementById("audio");
+          //embed.setAttribute("src", search.preview);
+          console.log(embed);
+          embed.src = obj.preview;
+          console.log(embed.src);
         });
       });
     });
