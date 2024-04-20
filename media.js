@@ -18,10 +18,10 @@
 //         throw new Error(console.log(error));
 //       }
 //     })
-//     .then((objSong) => {
-//       const footer = document.getElementsByTagName("footer");
-//       const video = document.createElement("audio");
-//       video.setAttribute("name", "media");
+//     .then((album) => {
+//       console.log(album);
+//       const embed = document.getElementById("audio");
+//       video.setAttribute("src", objSong.preview);
 
 //       const audio = document.createElement("source");
 //       audio.setAttribute("type", "audio/mpeg");

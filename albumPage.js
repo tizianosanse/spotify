@@ -1,7 +1,7 @@
-const url = "https://deezerdevs-deezer.p.rapidapi.com/album/"
-const params = new URLSearchParams(window.location.search)
-const id = params.get("p")
-console.log(id)
+const url = "https://deezerdevs-deezer.p.rapidapi.com/album/";
+const params = new URLSearchParams(window.location.search);
+const id = params.get("p");
+console.log(id);
 window.onload = () => {
   fetch(url + id, {
     method: "GET",
@@ -12,27 +12,27 @@ window.onload = () => {
   })
     .then((response) => {
       if (response.ok) {
-        console.log(response)
-        return response.json()
+        console.log(response);
+        return response.json();
       } else {
-        throw new Error(console.log(error))
+        throw new Error(console.log(error));
       }
     })
     .then((getElement) => {
-      console.log(getElement)
-      const title = document.getElementById("title")
-      const img = document.getElementById("imgAlbum")
-      img.setAttribute("src", getElement.cover_medium)
+      console.log(getElement);
+      const title = document.getElementById("title");
+      const img = document.getElementById("imgAlbum");
+      img.setAttribute("src", getElement.cover_medium);
 
-      title.innerText = getElement.title
-      const nameArtist = document.getElementById("name-artist")
-      nameArtist.innerText = getElement.artist.name
-      const arrTracks = getElement.tracks.data
-      const container = document.getElementById("tracks-container")
+      title.innerText = getElement.title;
+      const nameArtist = document.getElementById("name-artist");
+      nameArtist.innerText = getElement.artist.name;
+      const arrTracks = getElement.tracks.data;
+      const container = document.getElementById("tracks-container");
       arrTracks.forEach((track) => {
-        const time = (track.duration / 60).toFixed(2)
-        const rowContainer = document.createElement("div")
-        rowContainer.classList.add("row", "hover")
+        const time = (track.duration / 60).toFixed(2);
+        const rowContainer = document.createElement("div");
+        rowContainer.classList.add("row", "hover");
         rowContainer.innerHTML = `<div class="col-1">
         <p>${arrTracks.indexOf(track) + 1}</p>
       </div>
@@ -47,23 +47,26 @@ window.onload = () => {
         </div>
         <div class="col-1">
         <p>${time}</p>
-        </div>`
-        container.appendChild(rowContainer)
+        </div>`;
+        container.appendChild(rowContainer);
 
         rowContainer.addEventListener("click", () => {
-          const imgFoot = document.getElementById("imgFoot")
-          imgFoot.setAttribute("src", getElement.cover_medium)
-          const titleFoot = document.getElementById("titleFoot")
-          titleFoot.innerText = track.title
-          const artistFoot = document.getElementById("artistFoot")
-          artistFoot.innerText = track.artist.name
-        })
-      })
-    })
-  const likeLink = document.getElementById("likeLink")
+          console.log(track);
+          const imgFoot = document.getElementById("imgFoot");
+          imgFoot.setAttribute("src", getElement.cover_medium);
+          const titleFoot = document.getElementById("titleFoot");
+          titleFoot.innerText = track.title;
+          const artistFoot = document.getElementById("artistFoot");
+          artistFoot.innerText = track.artist.name;
+          const embed = document.getElementById("audio");
+          embed.setAttribute("src", track.preview);
+        });
+      });
+    });
+  const likeLink = document.getElementById("likeLink");
   likeLink.addEventListener("click", (event) => {
-    event.preventDefault()
-    const path = document.getElementById("path")
-    path.setAttribute("fill", "green")
-  })
-}
+    event.preventDefault();
+    const path = document.getElementById("path");
+    path.setAttribute("fill", "green");
+  });
+};

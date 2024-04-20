@@ -80,9 +80,7 @@ const generateBanner = () => {
       }
     })
     .then((getElement) => {
-      console.log(getElement);
       let bannerI = getElement.data[iR()];
-      console.log(bannerI.album.id);
       const annuncio = document.getElementById("annuncio");
       annuncio.innerHTML = `
       <div > 

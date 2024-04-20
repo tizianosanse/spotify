@@ -6,7 +6,6 @@ searchSidebar.addEventListener("click", (event) => {
   search.classList.remove("d-none");
 });
 const searchUrl = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
-
 const search = document.getElementById("search");
 search.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -51,7 +50,6 @@ search.addEventListener("submit", (event) => {
         imgAlbum.setAttribute("width", 60);
         imgAlbum.setAttribute("height", 60);
         imgAlbum.setAttribute("src", search.album.cover_medium);
-
         const rowSearchTrack = document.createElement("div");
         rowSearchTrack.classList.add("row", "hover");
         rowSearchTrack.addEventListener("click", (event) => {
@@ -62,6 +60,12 @@ search.addEventListener("submit", (event) => {
           artistFoot.innerText = search.artist.name;
           const imgFoot = document.getElementById("imgFoot");
           imgFoot.setAttribute("src", search.album.cover_medium);
+          const embed = document.getElementById("audio");
+          //embed.setAttribute("src", search.preview);
+          console.log(embed);
+          embed.src = search.preview;
+          console.log(embed.src);
+          console.log(search.preview);
         });
 
         const colSearchTrack = document.createElement("div");
@@ -73,6 +77,7 @@ search.addEventListener("submit", (event) => {
 
         colSearchTrack.appendChild(imgAlbum);
         colSearchTrack.appendChild(titlTrack);
+
         colSearchTrack.appendChild(artTrack);
         rowSearchTrack.appendChild(colSearchTrack);
         containerSearch.appendChild(rowSearchTrack);
