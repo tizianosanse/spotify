@@ -20,6 +20,7 @@ const generateAlbum = () => {
       }
     })
     .then((getElement) => {
+      console.log(getElement);
       const songArr = [];
       const song1 = getElement.data[0];
       const song2 = getElement.data[1];
